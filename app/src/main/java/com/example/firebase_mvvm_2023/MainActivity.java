@@ -10,6 +10,8 @@ import android.widget.EditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.UUID;
+
 public class MainActivity extends AppCompatActivity {
     private EditText mETNom, mETIngreddientes,mETPreu;
     private Button mBtnAñadir, mBtanActuaizar, mBtnEsborrar;
@@ -53,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void AñadirPizza() {
 
+        String nom = mETNom.getText().toString();
+        String ingredients= mETIngreddientes.getText().toString();
+        String precio = mETPreu.getText().toString();
+        String uid = UUID.randomUUID().toString();
+
+        Pizza pizza = new Pizza( nom,  ingredients,  precio,  uid);
+
+
+        mReference.child("Pizza").child(uid).setValue(pizza);
     }
 
     private void InicializarComponents(){
@@ -62,8 +73,9 @@ public class MainActivity extends AppCompatActivity {
         mBtanActuaizar = findViewById(R.id.BT_Actuaizar);
         mBtnAñadir = findViewById(R.id.BT_Añadir);
         mBtnEsborrar = findViewById(R.id.BT_Esborrar);
-        mDatabase = FirebaseDatabase.getInstance();
+        mDatabase = FirebaseDatabase.getInstance("https://fir-mvvm-2023-default-rtdb.europe-west1.firebasedatabase.app");
         mReference = mDatabase.getReference();
+
 
 
     }

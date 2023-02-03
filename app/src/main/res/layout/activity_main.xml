@@ -8,12 +8,7 @@
     android:orientation="vertical"
     android:padding="40dp">
 
-    <EditText
-        android:id="@+id/ET_Telepizza"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Telepizza"
-        android:layout_marginBottom="15dp"/>
+
     <EditText
         android:id="@+id/ET_Nom"
         android:layout_width="match_parent"
