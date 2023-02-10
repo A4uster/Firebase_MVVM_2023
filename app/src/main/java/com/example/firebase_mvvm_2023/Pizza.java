@@ -8,6 +8,9 @@ public class Pizza {
         mPrecio = precio;
         mUid = uid;
     }
+    public String toString(){
+        return mNombre + " - " + mIngredients + " - " + mPrecio;
+    }
 
     public void setmUid(String mUid) {this.mUid = mUid;}
     public void setmPrecio(String mPrecio) {this.mPrecio = mPrecio;}
